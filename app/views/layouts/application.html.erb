@@ -10,16 +10,27 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
-    <% end %>
-    <%= yield %>
+
+    <header>
+      <div class="header-container clearfix">Fbkclone
+        <%= link_to posts_path do %>
+          <%= fa_icon("facebook-square 3x") %>
+        <% end %>
+          <div class="header-container_menu">
+          <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, class: "#{key}") %>
+          <% end %>
+          <% if logged_in? %>
+            <%= link_to "Profile", user_path(current_user.id) %>
+            <%= link_to "New", new_post_path(current_user.id) %>
+            <%= link_to "Logout", session_path(current_user.id), method: :delete %>
+          <% else %>
+            <%= link_to "Sign up", new_user_path %>
+            <%= link_to "Login", new_session_path %>
+          <% end %>
+          <%= yield %>
+        </div>
+      </div>
+    </header>
   </body>
 </html>
