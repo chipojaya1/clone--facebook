@@ -5,29 +5,28 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def show
+  end
+
   def new
     @post = Post.new
-  # @post = current_user.post.build
+  end
+
+  def edit
   end
 
   def create
-  #  @post = current_user.posts.build(post_params)
     @post = Post.new(post_params)
+
     respond_to do |format|
       if @post.save
-        format.html { redirect_to new_post_path, notice: 'Post was successfully created.' }
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def show
-  end
-
-  def edit
   end
 
   def update
@@ -50,18 +49,12 @@ class PostsController < ApplicationController
     end
   end
 
-  def confirm
-  # @post = current_user.posts.build(post_params)
-   @post = Post.new(post_params)
-    render :new if @post.invalid?
-  end
-
   private
-  def set_post
-    @post = Post.find(params[:id])
-  end
+    def set_post
+      @post = Post.find(params[:id])
+    end
 
-  def post_params
-    params.require(:post).permit(:posts)
-  end
+    def post_params
+      params.require(:post).permit(:posts, :image, :image_cache)
+    end
 end
