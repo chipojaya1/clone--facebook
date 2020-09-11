@@ -1,29 +1,20 @@
+<div class="header_container-menu">
 <p id="notice"><%= notice %></p>
-
-<h1>Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Posts</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= link_to user_path(post.user.id) do %><%= post.user.name %></td>
-        <td><%= post.posts %></td>
-        <td><%= image_tag(post.image.url) if post.image && post.image.url %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
+<% @posts.each do |post| %>
+<article class="post">
+  <p class="content">
+    <strong><% post.user.name %></strong>
+  </p>
+  <br>
+  <p><%= post.posts %></p>
+  <%= image_tag(post.image.url) if post.image && post.image.url %>
+  <br>
+    <small><%= post.created_at.strftime('%Y/%-m/%-d %-H:%-M') %>
+    </small>
+  <br>
+  <span><%= link_to 'Show', post %></span>
+  <span><%= link_to 'Edit', edit_post_path(post) %></span>
+  <span><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+</article>
+<% end %>
+</div>
