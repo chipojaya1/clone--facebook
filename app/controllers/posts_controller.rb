@@ -1,5 +1,9 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :current_user
+  before_action :authenticate_user
+  before_action :logged_in?
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -16,11 +20,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -41,6 +45,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def confirm
+    @post = current_user.posts.build(post_params)
+    @post.id = params[:id]
+    render :new if @post.invalid?
+  end
+
   def destroy
     @post.destroy
     respond_to do |format|
@@ -55,6 +65,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:posts, :image, :image_cache)
+    params.require(:post).permit(:posts, :id, :image, :image_cache, :user_id)
   end
 end
