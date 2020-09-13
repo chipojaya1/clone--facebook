@@ -13,7 +13,7 @@
     </small>
   <br>
   <span><%= link_to 'Show', post %></span>
-  <span><%= link_to 'Edit', edit_post_path(post) %></span>
+  <span><%= link_to 'Update', post, method: :put %></span>
   <span><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
 </article>
 <% end %>
