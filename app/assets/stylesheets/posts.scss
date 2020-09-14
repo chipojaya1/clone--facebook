@@ -15,7 +15,6 @@ body {
   height: 600px;
 }
 .button {
-  color: black;
   background-color: skyblue;
   padding: 7px 7px 0;
 }
@@ -43,16 +42,11 @@ p {
   font-size: 13px;
   line-height: 18px;
 }
-pre {
-  padding: 10px;
-  font-size: 11px;
-  text-align: right;
-}
 a {
   text-decoration: none;
 
   &:hover {
-    color: white;
+    color: red;
   }
 }
 div {
