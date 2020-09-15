@@ -16,18 +16,6 @@
         <%= link_to posts_path do %> Fbkclone Home
         <% end %>
       </header>
-
-      <div class="notice">
-        <% if flash[:notice] %>
-          <p class="notice"><%= notice %></p>
-        <% end %>
-        <% if flash[:alert] %>
-        <p class="alert"><%= alert %></p>
-        <% end %>
-      </div>
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "#{key}") %>
-      <% end %>
       <% if logged_in? %>
         <%= link_to "Profile", user_path(current_user.id) %>
         <%= link_to "New", new_post_path %>
@@ -36,7 +24,15 @@
         <%= link_to "Sign up", new_user_path %>
         <%= link_to "Login", new_session_path %>
       <% end %>
-      <%= yield %>
+      <% if flash[:notice] %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <div class='notice'>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+      </div>
+    <%= yield %>
     </div>
   </body>
 </html>
