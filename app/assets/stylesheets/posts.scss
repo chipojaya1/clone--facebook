@@ -1,5 +1,6 @@
 header {
   background-color: #3B5998;
+  color: white;
   width: 100%;
   height: 50px;
   font-size: 20px;
@@ -7,6 +8,7 @@ header {
 }
 body {
   background-color: #eaebee;
+  margin: 0;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -15,13 +17,14 @@ body {
   overflow: scroll;
   height: 600px;
 }
-article{
-  text-align: center;
+article {
+  margin-bottom: 80px;
 }
 .post {
   width: 60%;
   height: auto;
   margin: auto;
+  background-color: white;
   padding: 2rem;
   border: solid;
 }
@@ -30,13 +33,13 @@ article{
   height: 200px;
 }
 h3 {
-  margin: 1.5rem;
+  margin: 1rem;
 }
 .field {
-  margin: 1.5rem;
+  margin: 1rem;
 }
 .actions {
-  margin: 1.5rem;
+  margin: 1rem;
 }
 p {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -44,17 +47,18 @@ p {
   line-height: 18px;
 }
 pre {
+  background-color: #3B5998;
   padding: 10px;
   font-size: 11px;
   text-align: right;
 }
 a {
-  text-decoration: none;
   color: skyblue;
+  display: flex;
   font-size: large;
 
   &:hover {
-    color: red;
+    color: white;
   }
 }
 div {
@@ -65,24 +69,22 @@ div {
 #notice #alert {
   color: red;
 }
-
 .field_with_errors {
   padding: 2px;
   background-color: red;
   display: table;
 }
-
 #error_explanation {
   width: 450px;
   border: 2px solid red;
   padding: 7px 7px 0;
   margin-bottom: 20px;
-
   h2 {
     font-weight: bold;
     padding: 5px 5px 5px 15px;
     font-size: 12px;
     margin: -7px -7px 0;
+    color: #fff;
   }
 }
 label {
@@ -91,14 +93,15 @@ label {
 .footer {
   background-color: #3B5998;
   color: #fff;
-  bottom: 0;
-  left: 0;
-  right: 0;
   width: 100%;
   height: 50px;
   text-align: center;
-  padding-top: 10px;
-}
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 20px;
+  }
 .clearfix:after {
   content: "";
   display: block;
