@@ -29,8 +29,8 @@ article {
   border: solid;
 }
 .image {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
 }
 h3 {
   margin: 1rem;
@@ -90,18 +90,6 @@ div {
 label {
   display: block;
 }
-.footer {
-  background-color: #3B5998;
-  color: #fff;
-  width: 100%;
-  height: 50px;
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding-top: 20px;
-  }
 .clearfix:after {
   content: "";
   display: block;
