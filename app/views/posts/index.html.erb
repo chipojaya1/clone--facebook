@@ -1,6 +1,8 @@
-<p id="notice"><%= notice %></p>
 <h1>All Posts</h1>
+<p id="notice"><%= notice %></p>
+
 <%= link_to 'New Post', new_post_path %>
+
 <% @posts.each do |post| %>
 <article class="post">
   <p class="content">
@@ -18,5 +20,6 @@
   <span class="button"><%= link_to 'Show', post %></span>
   <span class="button"><%= link_to 'Edit', edit_post_path(post) %></span>
   <span class="button"><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+  <br><br>
 </article>
 <% end %>
